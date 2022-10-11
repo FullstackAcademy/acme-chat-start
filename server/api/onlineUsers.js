@@ -11,7 +11,7 @@ router.get('/', async(req, res, next)=> {
       return next('nooo');
     }
 
-    res.send(Object.values(socketMap).map( value => value.user));
+    res.send(Object.values(socketMap).map( value => value.user).filter(u => u.id !== user.id));
   }
   catch(ex){
     next(ex);
